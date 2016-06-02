@@ -32,7 +32,9 @@ var i = 0
 for(var i = 0; i<fullylit; i++){
 list.push(100)
 }
+if(currentCPU!=100){
 list.push(parseInt(nextlight))
+}
 while(list.length<8){
   list.push(0)
 }
