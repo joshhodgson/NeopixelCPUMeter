@@ -45,7 +45,7 @@ setTimeout(function(){
 
   //Output result to console
   callback(percentageCPU)
-}, 1000)
+}, 3000)
 }
 
 
