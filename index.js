@@ -8,13 +8,9 @@ var port = new SerialPort("COM5", {
 
 port.on('open', function () {
   setInterval(function(){
-    port.write(render(), function(err, bytesWritten) {
-      if (err) {
-        return console.log('Error: ', err.message);
-      }
-      console.log(bytesWritten, 'bytes written');
-    });
-  }, 55)
+    cpu.measure(render)
+
+  }, 25)
 });
 
 port.on('data', function (data) {
@@ -27,9 +23,8 @@ port.on('data', function (data) {
 
 }, 100)*/
 
-function render(){
-  var currentCPU = cpu()
-  console.log(currentCPU)
+function render(currentCPU){
+
   var fullylit = parseInt(8*currentCPU/100)
   var nextlight = (8*currentCPU/100 - fullylit)*100
 var list = []
@@ -41,8 +36,6 @@ list.push(parseInt(nextlight))
 while(list.length<8){
   list.push(0)
 }
-console.log(list)
-//console.log(fullylit)
-return(list)
+
+port.write(list);
 }
-render()

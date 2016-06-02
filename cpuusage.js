@@ -28,11 +28,11 @@ function cpuAverage() {
 }
 
 //Grab first CPU Measure
-var startMeasure = cpuAverage();
 
 //Set delay for second Measure
-function measure() {
-
+function measure(callback) {
+  var startMeasure = cpuAverage();
+setTimeout(function(){
   //Grab second Measure
   var endMeasure = cpuAverage();
 
@@ -44,9 +44,9 @@ function measure() {
   var percentageCPU = 100 - ~~(100 * idleDifference / totalDifference);
 
   //Output result to console
-  return percentageCPU
-
+  callback(percentageCPU)
+}, 1000)
 }
 
 
-module.exports = measure
+module.exports.measure = measure

@@ -23,7 +23,7 @@ int delayval = 500; // delay for half a second
 
 void setup() {
     Serial.begin(9600);
-    Serial.setTimeout(50);
+    Serial.setTimeout(20);
 
 
 
@@ -41,7 +41,7 @@ void loop() {
     byte buffer[8];
       Serial.readBytes(buffer, 8);
       for( int i = 0; i<8; i++){
-        pixels.setPixelColor(i, pixels.Color(0,buffer[i],0)); // Moderately bright green color.
+        pixels.setPixelColor(i, pixels.Color(buffer[i],0,0)); // Moderately bright green color.
       }
 
         pixels.show();
