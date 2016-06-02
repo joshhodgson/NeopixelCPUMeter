@@ -31,7 +31,7 @@ function cpuAverage() {
 var startMeasure = cpuAverage();
 
 //Set delay for second Measure
-function measure(callback) {
+function measure() {
 
   //Grab second Measure
   var endMeasure = cpuAverage();
