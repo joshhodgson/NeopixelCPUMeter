@@ -20,10 +20,10 @@ void setup() {
 void loop() {
   if (Serial.available() > 0) {
     byte buffer[8];
-    Serial.readBytes(buffer, 8);
+    Serial.readBytes(buffer, NUMPIXELS);
     
-    for ( int i = 0; i < 8; i++) {
-      pixels.setPixelColor(7 - i, pixels.Color(0, 0, buffer[i]));
+    for ( int i = 0; i < NUMPIXELS; i++) {
+      pixels.setPixelColor(i, pixels.Color(0, 0, buffer[i]));
     }
 
     pixels.show();
